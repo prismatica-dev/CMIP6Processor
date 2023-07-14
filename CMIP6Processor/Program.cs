@@ -80,8 +80,11 @@ namespace CMIP6Processor {
             // export data
             Console.WriteLine($"data processed. exporting period {minimumyear} until {maximumyear}.");
             string[] aM = new string[annualMean.Count];
+            string[] aMc = new string[annualMean.Count];
             int i = 0;
+            foreach (int year in annualMean.Keys) { aMc[i] = (annualMean[year] - 273.15M).ToString(); }
             foreach (int year in annualMean.Keys) { aM[i] = annualMean[year].ToString(); i++; }
+            File.WriteAllLines($"{Environment.CurrentDirectory}\\cmip6-export-celcius.txt", aMc);
             File.WriteAllLines($"{Environment.CurrentDirectory}\\cmip6-export.txt", aM); }
         
         static List<FileInfo> GetMAGFiles(DirectoryInfo Directory) {
