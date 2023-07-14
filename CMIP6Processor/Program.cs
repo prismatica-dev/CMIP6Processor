@@ -12,7 +12,6 @@ namespace CMIP6Processor {
             // https://cmip6.science.unimelb.edu.au/search
 
             // argument validation
-            args = new string[] { "P:\\_cmip6-uom" };
             if (args.Length == 0) { ExitInvalid(); return; }
             string dir = args[0];
             if (string.IsNullOrWhiteSpace(dir)) { ExitInvalid(); return; }
